@@ -5,5 +5,3 @@ image: /assets/media.js
 ---
 
 # Home Page
-
-<!-- ![](https://cdn.hswstatic.com/gif/alpaca-llama.jpg) -->
