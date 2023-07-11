@@ -1,5 +1,5 @@
 export default {
-  title: 'Markdown is Cool',
-  description: 'A site built with markdown',
-  image: 'https://picsum.photos/400x300',
+	title: 'Markdown is Cool',
+	description: 'A site built with markdown',
+	image: 'https://picsum.photos/400x300',
 }
