@@ -48,9 +48,10 @@ ardi({
 					if (page.startsWith('#') || page.startsWith('---')) {
 						const { content, data } = grayMatter(page)
 						if (!preload) {
-							if (data) this.setHead(data)
 							this.contentRoot.innerHTML = parse(content)
+							this.handleLinks(this.contentRoot)
 							this.style.opacity = 1
+							if (data) this.setHead(data)
 						} else this.preloaded = { content: parse(content), data }
 					} else if (callback) callback()
 				})
@@ -64,11 +65,13 @@ ardi({
 	setPreloaded(path) {
 		this.contentRoot.innerHTML = this.preloaded.content
 		this.setHead(this.preloaded.data)
+		this.handleLinks(this.contentRoot)
 		this.preloaded = undefined
 		history.pushState(path, '', path)
 	},
-	handleLinks() {
-		this.querySelectorAll('a').forEach((link) => {
+	handleLinks(scope) {
+		scope.querySelectorAll('a').forEach((link) => {
+			console.log(scope, link)
 			if (link.pathname.startsWith('/')) {
 				link.addEventListener('mouseover', () => {
 					this.getMD(link.pathname, true)
@@ -83,7 +86,7 @@ ardi({
 	ready() {
 		this.getMD(location.pathname)
 		history.pushState(location.pathname, '', location.pathname)
-		this.handleLinks()
+		this.handleLinks(this)
 		addEventListener('popstate', (e) => this.getMD(e.state || '/'))
 	},
 	template() {
