@@ -51,6 +51,7 @@ ardi({
 							this.contentRoot.innerHTML = parse(content)
 							this.handleLinks(this.contentRoot)
 							this.style.opacity = 1
+							this.handleScripts(this.contentRoot)
 							if (data) this.setHead(data)
 						} else this.preloaded = { content: parse(content), data }
 					} else if (callback) callback()
@@ -66,12 +67,12 @@ ardi({
 		this.contentRoot.innerHTML = this.preloaded.content
 		this.setHead(this.preloaded.data)
 		this.handleLinks(this.contentRoot)
+		this.handleScripts(this.contentRoot)
 		this.preloaded = undefined
 		history.pushState(path, '', path)
 	},
 	handleLinks(scope) {
 		scope.querySelectorAll('a').forEach((link) => {
-			console.log(scope, link)
 			if (link.pathname.startsWith('/')) {
 				link.addEventListener('mouseover', () => {
 					this.getMD(link.pathname, true)
@@ -81,6 +82,15 @@ ardi({
 					if (this.preloaded) this.setPreloaded(link.pathname)
 				})
 			}
+		})
+	},
+	handleScripts(scope) {
+		scope.querySelectorAll('script').forEach((script) => {
+			const newScript = document.createElement('script')
+			if (script.src) newScript.src = script.src
+			if (script.type) newScript.type = script.type
+			if (script.innerHTML) newScript.innerHTML = script.innerHTML
+			script.parentNode.replaceChild(newScript, script)
 		})
 	},
 	ready() {
