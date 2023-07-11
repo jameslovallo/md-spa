@@ -12,7 +12,9 @@ ardi({
     const mq = matchMedia(`(min-width: ${this.breakpoint}px)`)
     this.mobile = !mq.matches
     mq.addEventListener('change', () => (this.mobile = !mq.matches))
-    this.contentRoot = this.querySelector('[slot=content]')
+    this.contentRoot = document.createElement('div')
+    this.contentRoot.slot = 'content'
+    this.appendChild(this.contentRoot)
   },
   setHead(data) {
     const { title, description, image } = { ...meta, ...data }
@@ -37,7 +39,7 @@ ardi({
     }
     if (image) createMeta('og:image', image)
   },
-  getMD(path) {
+  getMD(path, preload = false) {
     path = path === '/' ? '/home' : `${path}`
     const getFile = (path, callback) => {
       fetch(path)
@@ -45,9 +47,11 @@ ardi({
         .then((page) => {
           if (page.startsWith('#') || page.startsWith('---')) {
             const { content, data } = grayMatter(page)
-            if (data) this.setHead(data)
-            this.contentRoot.innerHTML = parse(content)
-            this.style.opacity = 1
+            if (!preload) {
+              if (data) this.setHead(data)
+              this.contentRoot.innerHTML = parse(content)
+              this.style.opacity = 1
+            } else this.preloaded = { content: parse(content), data }
           } else if (callback) callback()
         })
     }
@@ -57,8 +61,30 @@ ardi({
       })
     })
   },
+  setPreloaded(path) {
+    this.contentRoot.innerHTML = this.preloaded.content
+    this.setHead(this.preloaded.data)
+    this.preloaded = undefined
+    history.pushState(path, '', path)
+  },
+  handleLinks() {
+    this.querySelectorAll('a').forEach((link) => {
+      if (link.pathname.startsWith('/')) {
+        link.addEventListener('mouseover', () => {
+          this.getMD(link.pathname, true)
+        })
+        link.addEventListener('click', (e) => {
+          e.preventDefault()
+          if (this.preloaded) this.setPreloaded(link.pathname)
+        })
+      }
+    })
+  },
   ready() {
-    this.getMD(location.pathname, true)
+    this.getMD(location.pathname)
+    history.pushState(location.pathname, '', location.pathname)
+    this.handleLinks()
+    addEventListener('popstate', (e) => this.getMD(e.state))
   },
   template() {
     return html`
