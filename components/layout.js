@@ -7,7 +7,7 @@ import '//unpkg.com/ardi/components/dialog.js'
 ardi({
 	tag: 'app-layout',
 	props: { breakpoint: [Number, 768] },
-	state: () => ({ mobile: null }),
+	state: () => ({ mobile: null, touch: navigator.maxTouchPoints > 0 }),
 	created() {
 		const mq = matchMedia(`(min-width: ${this.breakpoint}px)`)
 		this.mobile = !mq.matches
@@ -74,12 +74,16 @@ ardi({
 	handleLinks(scope) {
 		scope.querySelectorAll('a').forEach((link) => {
 			if (link.pathname.startsWith('/')) {
-				link.addEventListener('mouseover', () => {
-					this.getMD(link.pathname, true)
-				})
+				if (this.touch) {
+					link.addEventListener('mouseover', () => {
+						this.getMD(link.pathname, true)
+					})
+				}
 				link.addEventListener('click', (e) => {
 					e.preventDefault()
-					if (this.preloaded) this.setPreloaded(link.pathname)
+					if (!this.touch && this.preloaded) {
+						this.setPreloaded(link.pathname)
+					} else this.getMD(link.pathname)
 				})
 			}
 		})
