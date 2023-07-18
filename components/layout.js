@@ -71,7 +71,7 @@ ardi({
 		this.preloaded = undefined
 		history.pushState(path, '', path)
 	},
-	handleLinks(scope) {
+	handleLinks(scope, drawer = false) {
 		scope.querySelectorAll('a').forEach((link) => {
 			if (link.pathname.startsWith('/')) {
 				if (!this.touch) {
@@ -84,6 +84,7 @@ ardi({
 					if (!this.touch && this.preloaded) {
 						this.setPreloaded(link.pathname)
 					} else this.getMD(link.pathname)
+					if (drawer) this.refs.drawer.open = false
 				})
 			}
 		})
@@ -100,7 +101,7 @@ ardi({
 	ready() {
 		this.getMD(location.pathname)
 		history.pushState(location.pathname, '', location.pathname)
-		this.handleLinks(this)
+		this.handleLinks(this, true)
 		addEventListener('popstate', (e) => this.getMD(e.state || '/'))
 	},
 	template() {
@@ -108,7 +109,7 @@ ardi({
 			<nav>
 				${this.mobile
 					? html`
-							<ardi-dialog drawer>
+							<ardi-dialog drawer ref="drawer">
 								<button slot="opener" part="menu-button">
 									<svg viewBox="0 0 24 24" part="menu-button-icon">
 										<path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
