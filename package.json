@@ -1,0 +1,11 @@
+{
+	"type": "module",
+	"dependencies": {
+		"browser-sync": "^2.29.3",
+		"chokidar": "^3.5.3",
+		"gray-matter": "^4.0.3"
+	},
+	"scripts": {
+		"dev": "ntl dev -c 'node dev.js'"
+	}
+}
