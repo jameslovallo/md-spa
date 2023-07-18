@@ -74,7 +74,7 @@ ardi({
 	handleLinks(scope) {
 		scope.querySelectorAll('a').forEach((link) => {
 			if (link.pathname.startsWith('/')) {
-				if (this.touch) {
+				if (!this.touch) {
 					link.addEventListener('mouseover', () => {
 						this.getMD(link.pathname, true)
 					})
