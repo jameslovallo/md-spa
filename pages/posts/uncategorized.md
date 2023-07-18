@@ -1,7 +1,7 @@
 ---
 title: Uncategorized
 description: A good description
-date: May 31 1989
+date: 05/31/1989
 ---
 
 # Uncategorized

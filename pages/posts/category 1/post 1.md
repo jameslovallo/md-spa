@@ -1,7 +1,7 @@
 ---
 title: Post 1
 description: Post 1 description
-date: May 31 1989
+date: 05/31/1989
 ---
 
 # Post 1

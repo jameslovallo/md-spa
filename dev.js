@@ -25,26 +25,25 @@ const checkEntry = (path) => {
 		exists,
 		category,
 		index: exists ? posts.indexOf(filtered[0]) : null,
-		formattedPath: path.replace('pages', '').replace('.md', ''),
 	}
 }
 
 const createEntry = (path) => {
-	const { exists, category, formattedPath } = checkEntry(path)
+	const { exists, category } = checkEntry(path)
 	if (!exists) {
 		const file = getFile(path)
 		const { data } = matter(file)
-		posts.push({ path: formattedPath, category, ...data })
+		posts.push({ path, category, ...data })
 		writeIndex()
 	}
 }
 
 const updateEntry = (path) => {
-	const { exists, index, category, formattedPath } = checkEntry(path)
+	const { exists, index, category } = checkEntry(path)
 	if (exists) {
 		const file = getFile(path)
 		const { data } = matter(file)
-		posts[index] = { path: formattedPath, category, ...data }
+		posts[index] = { path, category, ...data }
 		writeIndex()
 	}
 }
