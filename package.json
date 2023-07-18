@@ -6,6 +6,6 @@
 		"gray-matter": "^4.0.3"
 	},
 	"scripts": {
-		"dev": "ntl dev -c 'node dev.js'"
+		"dev": "npx browser-sync start . -s --files \"**/*.html, **/*.css, **/*.js, **/*.md\" --single & node dev.js"
 	}
 }
