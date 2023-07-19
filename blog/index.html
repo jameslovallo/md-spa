@@ -8,6 +8,7 @@
 		type="module"
 	></script>
 	<script src="/components/blog-list.js" type="module"></script>
+	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body>
@@ -24,4 +25,16 @@
 		<p slot="footer">Footer content</p>
 		<p slot="mobile-footer">Footer content</p>
 	</spa-root>
+
+	<script>
+		if (window.netlifyIdentity) {
+			window.netlifyIdentity.on('init', (user) => {
+				if (!user) {
+					window.netlifyIdentity.on('login', () => {
+						document.location.href = '/admin/'
+					})
+				}
+			})
+		}
+	</script>
 </body>
