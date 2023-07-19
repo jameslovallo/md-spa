@@ -18,13 +18,13 @@ ardi({
 	},
 	setHead(data) {
 		const { title, description, image } = { ...meta, ...data }
-		const createMeta = (property, content) => {
-			const metaTag = document.querySelector(`meta[property='${property}']`)
+		const createMeta = (name, content, attribute = 'property') => {
+			const metaTag = document.querySelector(`meta[${attribute}='${name}']`)
 			if (metaTag) {
 				metaTag.content = content
 			} else {
 				const newTag = document.createElement('meta')
-				newTag.setAttribute('property', property)
+				newTag.setAttribute(attribute, name)
 				newTag.setAttribute('content', content)
 				document.head.appendChild(newTag)
 			}
@@ -34,12 +34,13 @@ ardi({
 			createMeta('og:title', title)
 		}
 		if (description) {
-			createMeta('description', description)
+			createMeta('description', description, 'name')
 			createMeta('og:description', description)
 		}
 		if (image) createMeta('og:image', image)
 	},
 	getMD(path, preload = false) {
+		const corePath = path
 		path = path === '/' ? '/home' : `${path}`
 		const getFile = (path, callback) => {
 			fetch(path)
@@ -49,10 +50,11 @@ ardi({
 						const { content, data } = grayMatter(page)
 						if (!preload) {
 							this.contentRoot.innerHTML = parse(content)
-							this.handleLinks(this.contentRoot)
 							this.style.opacity = 1
-							this.handleScripts(this.contentRoot)
 							if (data) this.setHead(data)
+							this.handleLinks(this.contentRoot)
+							this.handleScripts(this.contentRoot)
+							history.pushState(corePath, '', corePath)
 						} else this.preloaded = { content: parse(content), data }
 					} else if (callback) callback()
 				})
