@@ -15,6 +15,7 @@
 	},
 	"homepage": "https://github.com/jameslovallo/md-spa#readme",
 	"dependencies": {
-		"degit": "^2.8.4"
+		"degit": "^2.8.4",
+		"prompts": "^2.4.2"
 	}
 }
