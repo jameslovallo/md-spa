@@ -1,0 +1,25 @@
+spa-root {
+	opacity: 0;
+}
+
+body,
+html {
+	font-family: sans-serif;
+	height: 100%;
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+	display: block;
+}
+
+img,
+video {
+	max-width: 100%;
+}

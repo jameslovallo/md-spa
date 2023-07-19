@@ -1,0 +1,11 @@
+{
+	"type": "module",
+	"dependencies": {
+		"browser-sync": "^2.29.3",
+		"chokidar": "^3.5.3",
+		"gray-matter": "^4.0.3"
+	},
+	"scripts": {
+		"dev": "npx browser-sync start . -s --files \"**/*.html, **/*.css, **/*.js, **/*.md\" --single & node dev.js"
+	}
+}
