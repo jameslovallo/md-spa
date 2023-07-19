@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import degit from 'degit'
 
 const starter = process?.argv[2]?.split('=')[1]
