@@ -1,6 +1,6 @@
 import grayMatter from 'https://cdn.skypack.dev/gray-matter@4.0.3'
 import parse from 'https://unpkg.com/snarkdown@2.0.0/dist/snarkdown.modern.js'
-import meta from '../meta.js'
+import head from '../head.js'
 import ardi, { css, html } from '//unpkg.com/ardi'
 import '//unpkg.com/ardi/components/dialog.js'
 
@@ -17,7 +17,7 @@ ardi({
 		this.appendChild(this.contentRoot)
 	},
 	setHead(data) {
-		const { title, description, image } = { ...meta, ...data }
+		const { title, description, image } = { ...head, ...data }
 		const createMeta = (name, content, attribute = 'property') => {
 			const metaTag = document.querySelector(`meta[${attribute}='${name}']`)
 			if (metaTag) {
