@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<script src="/components/layout.js" type="module"></script>
-	<link rel="stylesheet" href="/style.css" />
-</head>
+<html lang="en-us">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script
+			src="https://unpkg.com/ardi@latest/components/spa.js"
+			type="module"
+		></script>
+		<link rel="stylesheet" href="/style.css" />
+	</head>
 
-<body>
-	<app-layout>
-		<!-- Nav -->
-		<a slot="nav" href="/" style="margin-right: auto">Home</a>
-		<a slot="nav" href="/about">About</a>
-		<a slot="nav" href="/contact">Contact</a>
-		<!-- Mobile Nav -->
-		<a slot="mobile-nav" href="/" style="margin-right: auto">Home</a>
-		<a slot="mobile-nav" href="/contact">Contact</a>
-		<!-- Footer -->
-		<p slot="footer">Footer content</p>
-		<p slot="mobile-footer">Footer content</p>
-	</app-layout>
-</body>
+	<body>
+		<spa-root>
+			<!-- Nav -->
+			<a slot="nav" href="/" style="margin-right: auto">Home</a>
+			<a slot="nav" href="/about">About</a>
+			<a slot="nav" href="/contact">Contact</a>
+			<!-- Mobile Nav -->
+			<a slot="mobile-nav" href="/" style="margin-right: auto">Home</a>
+			<a slot="mobile-nav" href="/contact">Contact</a>
+			<!-- Footer -->
+			<p slot="footer">Footer content</p>
+			<p slot="mobile-footer">Footer content</p>
+		</spa-root>
+	</body>
+</html>
