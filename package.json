@@ -1,6 +1,6 @@
 {
 	"name": "md-spa",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A simple SPA for markdown, built with custom elements",
 	"type": "module",
 	"bin": "bin.js",
