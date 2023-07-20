@@ -17,25 +17,29 @@ ardi({
 	template() {
 		return html`
 			<ul>
-				${postArray.map((post) => {
-					const {
-						title,
-						description,
-						category,
-						fileInfo: { name },
-						date,
-					} = post
-					return html`
-						<li>
-							<h3>${title}</h3>
-							<p>${description}</p>
-							<div part="meta">
-								<a href=${`/posts/${category}/${name}`}> Read More </a>
-								<small>Published: ${date}</small>
-							</div>
-						</li>
-					`
-				})}
+				${postArray
+					.sort((a, b) => new Date(b.date) - new Date(a.date))
+					.map((post) => {
+						const {
+							title,
+							description,
+							category,
+							fileInfo: { name },
+							date,
+						} = post
+						return html`
+							<li>
+								<h3>${title}</h3>
+								<p>${description}</p>
+								<div part="meta">
+									<a href=${`/posts/${category}/${name}`}> Read More </a>
+									<small
+										>Published: ${new Date(date).toLocaleDateString()}</small
+									>
+								</div>
+							</li>
+						`
+					})}
 			</ul>
 		`
 	},
