@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="/style.css" />
-	<script
-		src="https://unpkg.com/ardi@latest/components/spa.js"
-		type="module"
-	></script>
-	<script src="/components/blog-list.js" type="module"></script>
-	<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</head>
+<html lang="en-us">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/style.css" />
+		<script
+			src="https://unpkg.com/md-spa/src/spa-root.js"
+			type="module"
+		></script>
+		<script src="/components/blog-list.js" type="module"></script>
+		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+	</head>
 
-<body>
-	<spa-root context="app">
-		<!-- Nav -->
-		<a slot="nav" href="/" style="margin-right: auto">Home</a>
-		<a slot="nav" href="/about">About</a>
-		<a slot="nav" href="/blog">Blog</a>
-		<a slot="nav" href="/contact">Contact</a>
-		<!-- Mobile Nav -->
-		<a slot="mobile-nav" href="/" style="margin-right: auto">Home</a>
-		<a slot="mobile-nav" href="/contact">Contact</a>
-		<!-- Footer -->
-		<p slot="footer">Footer content</p>
-		<p slot="mobile-footer">Footer content</p>
-	</spa-root>
+	<body>
+		<spa-root context="app">
+			<!-- Nav -->
+			<a slot="nav" href="/" style="margin-right: auto">Home</a>
+			<a slot="nav" href="/about">About</a>
+			<a slot="nav" href="/blog">Blog</a>
+			<a slot="nav" href="/contact">Contact</a>
+			<!-- Mobile Nav -->
+			<a slot="mobile-nav" href="/" style="margin-right: auto">Home</a>
+			<a slot="mobile-nav" href="/contact">Contact</a>
+			<!-- Footer -->
+			<p slot="footer">Footer content</p>
+			<p slot="mobile-footer">Footer content</p>
+		</spa-root>
 
-	<script>
-		if (window.netlifyIdentity) {
-			window.netlifyIdentity.on('init', (user) => {
-				if (!user) {
-					window.netlifyIdentity.on('login', () => {
-						document.location.href = '/admin/'
-					})
-				}
-			})
-		}
-	</script>
-</body>
+		<script>
+			if (window.netlifyIdentity) {
+				window.netlifyIdentity.on('init', (user) => {
+					if (!user) {
+						window.netlifyIdentity.on('login', () => {
+							document.location.href = '/admin/'
+						})
+					}
+				})
+			}
+		</script>
+	</body>
+</html>
