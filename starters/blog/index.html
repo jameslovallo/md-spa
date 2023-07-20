@@ -9,7 +9,7 @@
 	</head>
 
 	<body>
-		<spa-root context="app">
+		<spa-root context="spa">
 			<!-- Nav -->
 			<a slot="nav" href="/" style="margin-right: auto">Home</a>
 			<a slot="nav" href="/about">About</a>
@@ -29,10 +29,7 @@
 			</div>
 		</div>
 
-		<script
-			src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-			defer
-		></script>
+		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 		<script>
 			if (window.netlifyIdentity) {

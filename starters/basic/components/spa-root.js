@@ -112,7 +112,12 @@ ardi({
 				${this.mobile
 					? html`
 							<ardi-dialog drawer ref="drawer">
-								<button slot="opener" part="menu-button">
+								<button
+									slot="opener"
+									part="menu-button"
+									aria-label="Open Navigation Drawer"
+									title="Open Navigation Drawer"
+								>
 									<svg viewBox="0 0 24 24" part="menu-button-icon">
 										<path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
 									</svg>

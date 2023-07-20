@@ -11,8 +11,8 @@ Object.keys(posts).forEach((category) => {
 ardi({
 	tag: 'blog-list',
 	ready() {
-		const app = this.context('app')
-		app.handleLinks(this.root)
+		const spa = this.context('spa')
+		spa.handleLinks(this.root)
 	},
 	template() {
 		return html`
