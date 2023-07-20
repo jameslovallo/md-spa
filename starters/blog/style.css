@@ -1,4 +1,4 @@
-spa-root {
+spa-root:not(:defined) {
 	opacity: 0;
 }
 
@@ -22,4 +22,50 @@ svg {
 img,
 video {
 	max-width: 100%;
+}
+
+/* loader */
+
+@keyframes eclipse {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.loader {
+	display: none;
+	height: 200px;
+	left: calc(50% - 100px);
+	position: fixed;
+	top: calc(50% - 100px);
+	width: 200px;
+}
+
+.eclipse {
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+
+.eclipse div {
+	animation: eclipse 1s linear infinite;
+	border-radius: 50%;
+	box-shadow: 0 4px 0 0 #e15b64;
+	box-sizing: content-box;
+	height: 160px;
+	left: 20px;
+	position: absolute;
+	top: 20px;
+	transform-origin: 80px 82px;
+	width: 160px;
+}
+
+spa-root:not(:defined) + .loader {
+	display: block;
 }
