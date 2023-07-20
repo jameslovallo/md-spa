@@ -1,5 +1,12 @@
-import posts from '../pages/posts/index.js'
+import posts from '../pages/posts.js'
 import ardi, { css, html } from '//unpkg.com/ardi'
+
+const postArray = []
+Object.keys(posts).forEach((category) => {
+	Object.keys(posts[category]).forEach((post) => {
+		postArray.push({ category, ...posts[category][post] })
+	})
+})
 
 ardi({
 	tag: 'blog-list',
@@ -10,20 +17,25 @@ ardi({
 	template() {
 		return html`
 			<ul>
-				${posts.map(
-					(post) => html`
+				${postArray.map((post) => {
+					const {
+						title,
+						description,
+						category,
+						fileInfo: { name },
+						date,
+					} = post
+					return html`
 						<li>
-							<h3>${post.title}</h3>
-							<p>${post.description}</p>
+							<h3>${title}</h3>
+							<p>${description}</p>
 							<div part="meta">
-								<a href=${post.path.replace('pages', '').replace('.md', '')}>
-									Read More
-								</a>
-								<small>Published: ${post.date}</small>
+								<a href=${`/posts/${category}/${name}`}> Read More </a>
+								<small>Published: ${date}</small>
 							</div>
 						</li>
 					`
-				)}
+				})}
 			</ul>
 		`
 	},
