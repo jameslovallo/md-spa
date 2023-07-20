@@ -1,10 +1,22 @@
 ---
-title: About Us
+title: About Me
 ---
 
-# About Us
+<img class="profile-photo" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80">
 
-![A group of people acting way too excited about something at work](https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80)
+<style>
+	.profile-photo {
+		aspect-ratio: 1;
+		border-radius: 50%;
+		float: right;
+		margin: 0 0 .5rem .5rem;
+		object-fit: cover;
+		shape-outside: circle(50%);
+		width: 150px;
+	}
+</style>
+
+# About Me
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec molestie dapibus feugiat. In dapibus, turpis quis gravida iaculis, neque libero pellentesque arcu, et posuere magna ante sit amet mi. Suspendisse potenti. Phasellus rhoncus egestas luctus. Curabitur luctus, tortor id euismod ornare, magna libero semper tellus, quis commodo turpis elit ultricies dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed vitae consectetur augue.
 
