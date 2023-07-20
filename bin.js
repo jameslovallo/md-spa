@@ -22,7 +22,7 @@ const response = await prompts([
 
 const { folder, starter } = response
 
-const emitter = degit(`jameslovallo/md-spa/${starter}`, {
+const emitter = degit(`jameslovallo/md-spa/starters/${starter}`, {
 	cache: false,
 	force: true,
 	verbose: false,
