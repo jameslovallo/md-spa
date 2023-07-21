@@ -1,5 +1,10 @@
-spa-root:not(:defined) {
+spa-root:not(:defined),
+ardi-form:not(:defined) {
 	opacity: 0;
+}
+
+:root {
+	color-scheme: light dark;
 }
 
 body,
