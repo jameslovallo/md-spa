@@ -1,7 +1,8 @@
 ---
-title: Home
-description: A site built with markdown
-image: /assets/media.js
+title: Blog
+description: Stuff I wrote
 ---
 
-# Home Page
+# Blog
+
+<blog-list></blog-list>

@@ -46,12 +46,19 @@ ardi({
 	styles: css`
 		ul {
 			display: grid;
-			gap: 1.5rem;
 			list-style: none;
 			padding: 0;
 		}
 		li {
-			line-height: 1.5;
+			border-bottom: 1px solid rgba(125, 125, 125, 0.5);
+			display: grid;
+			gap: 1rem;
+			margin-bottom: 1.5rem;
+			padding-bottom: 1.5rem;
+		}
+		li:first-child {
+			border-top: 1px solid rgba(125, 125, 125, 0.5);
+			padding-top: 1.5rem;
 		}
 		h3,
 		p {
@@ -61,7 +68,11 @@ ardi({
 			align-items: baseline;
 			display: flex;
 			justify-content: space-between;
-			margin-top: 0.5rem;
+		}
+		a {
+			color: inherit;
+			font-family: Arial, Helvetica, sans-serif;
+			text-decoration-color: dodgerblue;
 		}
 	`,
 })
