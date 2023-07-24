@@ -13,6 +13,7 @@ html {
 	height: 100%;
 	line-height: 1.5;
 	margin: 0;
+	overflow-x: hidden;
 }
 
 * {
@@ -25,6 +26,10 @@ svg {
 	display: block;
 }
 
+img {
+	object-fit: cover;
+}
+
 img,
 video {
 	max-width: 100%;
@@ -34,23 +39,30 @@ video {
 
 .hero {
 	align-items: center;
-	aspect-ratio: 21/9;
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
-		url('https://images.unsplash.com/photo-1431578500526-4d9613015464?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80')
-			no-repeat center center / cover;
+	aspect-ratio: 16/9;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin-left: 50%;
 	margin-top: -1rem;
-	max-height: 30rem;
+	position: relative;
+}
+
+.hero:before {
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),
+		url(/assets/hero.jpg) no-repeat center center / cover;
+	content: '';
+	height: 100%;
+	left: 50%;
+	position: absolute;
+	top: 0;
 	transform: translateX(-50%);
 	width: 100vw;
+	z-index: -1;
 }
 
 .hero h1 {
 	color: white;
-	font-size: 3rem;
+	font-size: 2.25rem;
 	margin: 1rem 0;
 	text-shadow: 0 0 20px black;
 }

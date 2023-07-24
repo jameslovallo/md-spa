@@ -183,7 +183,7 @@ ardi({
 			padding: 1rem;
 		}
 		footer {
-			rgba(125, 125, 125, 0.25);
+			background: rgba(125, 125, 125, 0.25);
 			position: sticky;
 			top: 100vh;
 		}
