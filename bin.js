@@ -15,7 +15,7 @@ const response = await prompts([
 		choices: [
 			{ title: 'basic', value: 'basic' },
 			{ title: 'blog', value: 'blog' },
-			{ title: 'ecommerce', value: 'ecommerce' },
+			{ title: 'store', value: 'store' },
 		],
 	},
 ])

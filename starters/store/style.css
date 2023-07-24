@@ -1,0 +1,135 @@
+spa-root:not(:defined),
+ardi-form:not(:defined) {
+	opacity: 0;
+}
+
+:root {
+	--accent: dodgerblue;
+	--border: 1px solid rgba(125, 125, 125, 0.5);
+	color-scheme: light dark;
+}
+
+body,
+html {
+	font-family: sans-serif;
+	height: 100%;
+	line-height: 1.5;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+	display: block;
+}
+
+img {
+	object-fit: cover;
+}
+
+img,
+video {
+	max-width: 100%;
+}
+
+/* checkout */
+
+.snipcart-checkout {
+	background: none;
+	border: none;
+	color: currentColor;
+	cursor: pointer;
+	font: inherit;
+	padding: 0;
+	position: relative;
+}
+
+.snipcart-checkout svg {
+	fill: currentColor;
+	width: 24px;
+}
+
+.snipcart-items-count {
+	align-items: center;
+	background: var(--accent);
+	border-radius: 50%;
+	display: flex;
+	font-size: 0.75rem;
+	height: 1rem;
+	justify-content: center;
+	min-width: 1rem;
+	position: absolute;
+	right: -0.5rem;
+	top: -0.5rem;
+}
+
+/* product list */
+
+product-list {
+	display: grid;
+	gap: 1.5rem;
+}
+
+product-list h1 {
+	margin-bottom: 0;
+}
+
+product-list p {
+	margin: 0;
+}
+
+product-list .toolbar {
+	align-items: baseline;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+product-list .toolbar select {
+	background: transparent;
+	border: none;
+	font: inherit;
+	font-size: 1rem;
+	padding: 0;
+}
+
+product-list .list {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* product cards */
+
+product-card {
+	border: var(--border);
+	display: block;
+}
+
+product-card .details {
+	display: grid;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+product-card .details h3,
+product-card .details p {
+	margin: 0;
+}
+
+product-card .details button {
+	background: transparent;
+	border: none;
+	border-radius: 0.5rem;
+	box-sizing: border-box;
+	color: var(--accent);
+	cursor: pointer;
+	font: inherit;
+	padding: 0;
+	text-align: left;
+}
