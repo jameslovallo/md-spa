@@ -5,7 +5,7 @@ ardi-form:not(:defined) {
 
 :root {
 	--accent: dodgerblue;
-	--border: 1px solid rgba(125, 125, 125, 0.5);
+	--surface: rgba(125, 125, 125, 0.15);
 	color-scheme: light dark;
 }
 
@@ -107,13 +107,15 @@ product-list .list {
 /* product cards */
 
 product-card {
-	border: var(--border);
+	background: var(--surface);
+	border-radius: 0.5rem;
 	display: block;
+	overflow: hidden;
 }
 
 product-card .details {
 	display: grid;
-	gap: 1rem;
+	gap: 0.66rem;
 	padding: 1rem;
 }
 
