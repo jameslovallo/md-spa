@@ -6,7 +6,7 @@ ardi({
 	shadow: false,
 	props: {
 		heading: [String, 'Our Products'],
-		category: [String, 'photography'],
+		category: [String, 'womens'],
 		single: [Boolean, false],
 	},
 	template() {

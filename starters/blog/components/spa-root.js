@@ -108,7 +108,7 @@ ardi({
 	},
 	template() {
 		return html`
-			<nav>
+			<nav part="nav">
 				${this.mobile
 					? html`
 							<ardi-dialog drawer ref="drawer">
@@ -128,10 +128,10 @@ ardi({
 					  `
 					: html`<slot name="nav"></slot>`}
 			</nav>
-			<main>
+			<main part="main">
 				<slot name="content"></slot>
 			</main>
-			<footer>
+			<footer part="footer">
 				<slot name=${this.mobile ? 'mobile-footer' : 'footer'}></slot>
 			</footer>
 		`
@@ -180,7 +180,7 @@ ardi({
 		main {
 			margin: 0 auto;
 			max-width: 70ch;
-			padding: 1rem;
+			padding: 1rem 1rem 4rem 1rem;
 		}
 		footer {
 			background: rgba(125, 125, 125, 0.25);

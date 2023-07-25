@@ -11,7 +11,7 @@ ardi({
 	},
 	template() {
 		return html`
-			<img src=${this.image} />
+			${this.image ? html`<img src=${this.image} />` : ''}
 			<div class="details">
 				<h3>${this.name}</h3>
 				<p>${this.description}</p>

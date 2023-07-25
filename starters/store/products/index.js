@@ -1,7 +1,9 @@
-import bears from './bears.js'
-import photography from './photography.js'
+import cosmetics from './cosmetics.js'
+import mens from './mens.js'
+import womens from './womens.js'
 
 export default {
-	bears,
-	photography,
+	mens,
+	womens,
+	cosmetics,
 }
